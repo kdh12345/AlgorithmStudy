@@ -1,0 +1,10 @@
+-- 코드를 작성해주세요
+select A.ID
+      ,COUNT(B.ID) AS CHILD_COUNT
+  from ECOLI_DATA A
+    LEFT OUTER JOIN ECOLI_DATA B
+      ON A.ID = B.PARENT_ID
+      AND B.PARENT_ID IS NOT NULL
+GROUP BY A.ID
+ORDER BY A.ID
+;
