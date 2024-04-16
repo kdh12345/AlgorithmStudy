@@ -1,0 +1,8 @@
+SELECT        ED.ID,
+              ED.GENOTYPE,
+              ED2.GENOTYPE AS PARENT_GENOTYPE
+          FROM ECOLI_DATA ED
+             , ECOLI_DATA ED2
+          WHERE ED2.ID = ED.PARENT_ID
+            and ED.GENOTYPE & ED2.GENOTYPE = ED2.GENOTYPE
+          ORDER BY ED.ID ASC
