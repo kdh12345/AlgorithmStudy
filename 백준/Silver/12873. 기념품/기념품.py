@@ -14,8 +14,6 @@ for i in range(1,player):
     cnt = (i**3)%len(pl)
 
     rmvNum = (cnt-1+s)%len(pl) # pop 할꺼 -1
-    if rmvNum < 0:
-        rmvNum+=len(pl)
     pl.pop(rmvNum)
     s = rmvNum
 
