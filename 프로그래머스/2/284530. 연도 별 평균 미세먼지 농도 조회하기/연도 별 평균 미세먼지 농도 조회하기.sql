@@ -1,0 +1,8 @@
+-- 코드를 작성해주세요
+select YEAR(A.YM) AS YEAR
+      ,ROUND(AVG(A.PM_VAL1),2) AS 'PM10'
+      ,ROUND(AVG(A.PM_VAL2),2) AS 'PM2.5'
+  from AIR_POLLUTION A
+where A.LOCATION2 = '수원'
+GROUP BY YEAR(A.YM)
+ORDER BY YEAR
