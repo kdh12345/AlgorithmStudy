@@ -1,12 +1,14 @@
 -- 코드를 입력하세요
-SELECT YEAR(B.SALES_DATE) AS YEAR
-      ,MONTH(B.SALES_DATE) AS MONTH
-      ,A.GENDER
-      ,COUNT(DISTINCT B.USER_ID) AS USERS
+SELECT to_char(B.SALES_DATE,'yyyy') as YEAR
+      ,case when to_char(B.SALES_DATE,'mm') < '10'
+            then substr(to_char(B.SALES_DATE,'mm'),2,1)
+            else to_char(B.SALES_DATE,'mm')
+            end  as MONTH
+      ,A.gender
+      ,count(distinct B.user_id) as USERS
   FROM USER_INFO A
       ,ONLINE_SALE B
-WHERE A.USER_ID = B.USER_ID
-  AND A.GENDER IN (0,1)
-GROUP BY YEAR(B.SALES_DATE), MONTH(B.SALES_DATE), A.GENDER
-ORDER BY YEAR, MONTH, A.GENDER
-;
+where A.USER_ID = B.USER_ID
+  and A.gender in (0,1)
+group by to_char(B.SALES_DATE,'yyyy') , to_char(B.SALES_DATE,'mm'), A.gender
+order by to_char(B.SALES_DATE,'yyyy') , to_char(B.SALES_DATE,'mm'), A.gender
