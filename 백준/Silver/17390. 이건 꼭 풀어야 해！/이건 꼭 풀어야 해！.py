@@ -1,5 +1,5 @@
 import sys
-input = sys.stdin.readline  
+input = sys.stdin.readline
 
 n,q = map(int,input().split())
 numbers = list(map(int,input().split()))
