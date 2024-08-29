@@ -1,9 +1,8 @@
 -- 코드를 입력하세요
-SELECT A.DR_NAME
-      ,A.DR_ID
-      ,A.MCDP_CD
-      ,DATE_FORMAT(A.HIRE_YMD,'%Y-%m-%d') as HIRE_YMD
-  FROM DOCTOR A
-WHERE A.MCDP_CD IN ('CS','GS')
-ORDER BY HIRE_YMD DESC, A.DR_NAME
-;
+SELECT dr_name
+      ,dr_id
+      ,mcdp_cd
+      ,to_char(hire_ymd, 'yyyy-mm-dd') hire_ymd
+  from doctor
+where mcdp_cd IN ('CS','GS')
+order by hire_ymd desc, dr_name
