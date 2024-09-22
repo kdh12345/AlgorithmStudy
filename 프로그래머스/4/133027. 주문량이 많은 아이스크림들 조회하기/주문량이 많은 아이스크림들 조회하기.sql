@@ -1,11 +1,13 @@
-select T.FLAVOR
-  FROM (SELECT A.FLAVOR AS FLAVOR
+-- 코드를 입력하세요
+SELECT T.FLAVOR
+  from (
+        SELECT A.FLAVOR AS FLAVOR
               ,SUM(A.TOTAL_ORDER)+SUM(B.TOTAL_ORDER) AS TOTAL_ORDER
           FROM FIRST_HALF A
               ,JULY B
         WHERE A.FLAVOR = B.FLAVOR
       GROUP BY A.FLAVOR
       ORDER BY TOTAL_ORDER DESC
- ) T
-limit 3
+  ) T
+WHERE ROWNUM <= 3
 ;
