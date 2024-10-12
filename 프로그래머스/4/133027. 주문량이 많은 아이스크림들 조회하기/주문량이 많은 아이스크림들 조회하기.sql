@@ -1,13 +1,13 @@
 -- 코드를 입력하세요
-SELECT T.FLAVOR
-  from (
-        SELECT A.FLAVOR AS FLAVOR
-              ,SUM(A.TOTAL_ORDER)+SUM(B.TOTAL_ORDER) AS TOTAL_ORDER
-          FROM FIRST_HALF A
-              ,JULY B
-        WHERE A.FLAVOR = B.FLAVOR
-      GROUP BY A.FLAVOR
-      ORDER BY TOTAL_ORDER DESC
-  ) T
+SELECT FLAVOR
+  fROM (
+       SELECT A.FLAVOR
+             ,SUM(A.TOTAL_ORDER + B.TOTAL_ORDER) AS TOTAL
+         FROM FIRST_HALF A
+             ,JULY B
+       WHERE A.FLAVOR = B.FLAVOR
+       GROUP BY A.FLAVOR
+       ORDER BY TOTAL DESC
+   )
 WHERE ROWNUM <= 3
 ;
