@@ -1,7 +1,11 @@
 -- 코드를 입력하세요
-SELECT *
+SELECT A.PRODUCT_ID
+      ,A.PRODUCT_NAME
+      ,A.PRODUCT_CD
+      ,A.CATEGORY
+      ,A.PRICE
   FROM FOOD_PRODUCT A
-WHERE A.PRICE = (SELECT MAX(X.PRICE)
-                        FROM FOOD_PRODUCT X
-                )
-                      ;
+WHERE PRICE = (SELECT MAX(X.PRICE)
+                 FROM FOOD_PRODUCT X
+              )
+;
