@@ -5,9 +5,9 @@ SELECT A.REST_ID
       ,A.FAVORITES
       ,A.ADDRESS
       ,ROUND(AVG(B.REVIEW_SCORE),2) AS SCORE
-  from rest_info A
-      ,rest_review B
-where A.REST_ID = B.REST_ID
+  FROM REST_INFO A
+      ,REST_REVIEW B
+WHERE A.REST_ID = B.REST_ID
   AND SUBSTR(A.ADDRESS,1,2) = '서울'
 GROUP BY A.REST_ID
       ,A.REST_NAME
