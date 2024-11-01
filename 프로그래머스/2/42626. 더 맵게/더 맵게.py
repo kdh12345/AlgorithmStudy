@@ -4,14 +4,21 @@ def solution(scoville, K):
     h = []
     for item in scoville:
         heapq.heappush(h,item)
-    total = 0
-    while h[0] < K:
-        if len(h) <= 1:
-            return -1
-        fir = heapq.heappop(h)
-        sec = heapq.heappop(h)
-        total = fir + sec * 2
-        
-        answer+=1
-        heapq.heappush(h,total)
+    num = 0
+    idx = 0
+    while idx<len(scoville):
+        if h[0] >= K:
+            break
+        first = 0
+        if len(h) > 0:
+            first = heapq.heappop(h)
+        second = 0
+        if len(h) > 0:
+            second = heapq.heappop(h)
+        num = first+second*2
+        heapq.heappush(h,num)
+        answer += 1
+        idx += 1
+    if idx == len(scoville):
+        return -1
     return answer
