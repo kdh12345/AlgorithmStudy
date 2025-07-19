@@ -1,6 +1,7 @@
 -- 코드를 입력하세요
-SELECT ANIMAL_TYPE
-      ,IFNULL(NAME,'No name') as NAME
-      ,SEX_UPON_INTAKE
-  FROM ANIMAL_INS
+SELECT A.animal_type
+      ,nvl(A.NAME,'No name') AS NAME
+      ,A.SEX_UPON_INTAKE
+  from ANIMAL_INS A
+order by A.animal_id
 ;
