@@ -1,13 +1,13 @@
 -- 코드를 입력하세요
-SELECT a.USER_ID
-      ,a.NICKNAME
-      ,sum(b.price) as total_sales
-  from USED_GOODS_USER a
-      ,USED_GOODS_BOARD b
-where a.USER_ID = b.WRITER_ID
-  and b.status = 'DONE'
-group by a.USER_ID
-      ,a.NICKNAME
-having sum(b.price) >= 700000
-order by total_sales
+SELECT B.USER_ID
+      ,B.NICKNAME
+      ,SUM(NVL(A.PRICE,0)) AS TOTAL_SALES
+  FROM USED_GOODS_BOARD A
+      ,USED_GOODS_USER B
+WHERE A.WRITER_ID = B.USER_ID
+  AND A.STATUS = 'DONE'
+GROUP BY B.USER_ID
+        ,B.NICKNAME
+HAVING SUM(NVL(A.PRICE,0)) >= 700000
+ORDER BY TOTAL_SALES
 ;
