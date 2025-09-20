@@ -1,6 +1,6 @@
 # [level 3] 즐겨찾기가 가장 많은 식당 정보 출력하기 - 131123 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/131123?language=mysql) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/131123?language=oracle) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@ Empty
 
 ### 제출 일자
 
-2024년 06월 02일 14:44:40
+2025년 09월 20일 16:32:36
 
 ### 문제 설명
 
