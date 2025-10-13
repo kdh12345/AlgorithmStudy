@@ -1,4 +1,4 @@
 -- 코드를 입력하세요
-SELECT COUNT(1) as count
-  from ANIMAL_INS
-  ;
+SELECT count(1) AS 'count'
+  from ANIMAL_INS A
+;
